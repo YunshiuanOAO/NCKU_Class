@@ -1,0 +1,35 @@
+
+"li t0,0\n"
+"sw t0,-24(s0)\n\t"
+"addi %[lw_cnt],%[lw_cnt],1\n\t"
+"addi %[sw_cnt],%[sw_cnt],1\n"	
+
+"loop_1:\n"
+	
+	"lw t1,0(%[x])\n"
+	"addi %[lw_cnt],%[lw_cnt],1\n"	
+	"lw t0,0(%[h])\n"
+	"addi %[lw_cnt],%[lw_cnt],1\n"	
+	"mul t0,t0,t1\n"
+	"addi %[mul_cnt],%[mul_cnt],1\n"	
+	"add t0,t0,%[id]\n"
+	"addi %[add_cnt],%[add_cnt],1\n"	
+	"sw t0,0(%[y])\n"
+	"addi %[sw_cnt],%[sw_cnt],1\n"	
+
+	"addi %[h],%[h],2\n"
+	"addi %[x],%[x],2\n"
+	"addi %[y],%[y],2\n"
+	
+	
+	"addi %[add_cnt],%[add_cnt],4\n"
+	"lw t0,-24(s0)\n"
+	"addi %[lw_cnt],%[lw_cnt],1\n\t"
+	"addi t0,t0,1\n"
+	"sw t0,-24(s0)\n"
+	"addi %[sw_cnt],%[sw_cnt],1\n"	
+	"addi %[others_cnt],%[others_cnt],1\n"
+	"bge t0,%[arr_size],out\n"
+	"addi %[others_cnt],%[others_cnt],1\n"	
+	"j loop_1\n"
+"out:\n"
