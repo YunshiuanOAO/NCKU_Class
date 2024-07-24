@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f928ea8e-b964-4582-bdf9-0609bfd8a06f)# setuo 
+# setup 
 環境設置指南pdf
 
 # HW1
