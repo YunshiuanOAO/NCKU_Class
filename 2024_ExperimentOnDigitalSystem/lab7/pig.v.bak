@@ -1,0 +1,49 @@
+module pig (a, out, valid);
+
+input [3:0] a;
+output [6:0] out;
+reg [6:0] out_reg;
+assign out = out_reg;
+
+always@(*) begin
+    case(a)
+        8'b00000001: begin
+            out_reg = 3'b000;
+            valid_reg = 1'b1;
+        end
+        8'b00000010: begin
+            out_reg = 3'b001;
+            valid_reg = 1'b1;
+        end
+        8'b00000100: begin
+            out_reg = 3'b010;
+            valid_reg = 1'b1;
+        end
+        8'b00001000: begin
+            out_reg = 3'b011;
+            valid_reg = 1'b1;
+        end
+        8'b00010000: begin
+            out_reg = 3'b100;
+            valid_reg = 1'b1;
+        end
+        8'b00100000: begin
+            out_reg = 3'b101;
+            valid_reg = 1'b1;
+        end
+        8'b01000000: begin
+            out_reg = 3'b110;
+            valid_reg = 1'b1;
+        end
+        8'b10000000: begin
+            out_reg = 3'b111;
+            valid_reg = 1'b1;
+        end
+        default: begin
+            out_reg = 3'b000;
+            valid_reg = 1'b0;
+        end
+    endcase
+end
+
+endmodule

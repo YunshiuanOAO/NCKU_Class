@@ -1,0 +1,23 @@
+module duck (a, b, sel, sum, carry);
+
+input [3:0] a;
+input [3:0] b;
+input sel;
+output [3:0] sum;
+output carry;
+reg [3:0] sum_reg;
+reg carry_reg;
+
+assign sum = sum_reg;
+assign carry = carry_reg;
+
+always@(*) begin
+	if (sel == 1'b1) begin
+	  {carry_reg, sum_reg} = a + b;
+	end
+	else begin
+     {carry_reg, sum_reg} = a - b;
+   end
+end
+
+endmodule
